@@ -1,3 +1,5 @@
+# HoursChromeExtension
+
 Steps to loading your handy hours calculator:
 
 I) Save the extension directory in an obvious place
