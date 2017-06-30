@@ -4,14 +4,16 @@ I) Save the extension directory in an obvious place.
 
 II) Open Chrome and go to chrome://extensions/
 
-III) Click "Load unpacked extension..."
+III) Check the developer mode box
 
-IV) Find and select the extension directory
+IV) Click "Load unpacked extension..."
 
-V) Make sure "Enabled" is checked, refresh page if needed 
+V) Find and select the extension directory
+
+VI) Make sure "Enabled" is checked, refresh page if needed 
 
 (a small doge icon should show up to the right of the address bar)
 
-VI) Log in to ADP and click doge icon
+VII) Log in to ADP and click doge icon
 
-VII) A window should pop up with your necessary check-out time
+VIII) A window should pop up with your necessary check-out time
