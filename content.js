@@ -28,7 +28,7 @@ chrome.runtime.onMessage.addListener(
 			endTime = convertToHours(endTime);
 			
 			// console.log("end: ", endTime);
-			window.alert("To achieve an 8 hour work day, you need to check out at " + endTime);
+			window.alert("To achieve an 8 hour work day, you need to clock-out at " + endTime);
 		}
 	}
 	
