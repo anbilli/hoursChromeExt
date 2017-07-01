@@ -4,17 +4,17 @@
 	"version": "0.1",
 	"content_scripts": [
 		{
-			"matches": [
-				"<all_urls>"
-			],
+			"matches": ["https://workforcenow.adp.com/*"],
 			"js": ["jquery-3.2.1.min.js", "content.js"]
 		}
 	],
-	"browser_action": {
-		"default_icon": "doge.png"
+	"page_action": {
+		"default_icon": "doge.png",
+		"default_popup": "popup.html"
 	},
 	"background": {
-		"scripts": ["background.js"]
+		"scripts": ["background.js"],
+		"persistent": false
 	}
 	
 }

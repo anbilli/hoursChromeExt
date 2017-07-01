@@ -1,0 +1,12 @@
+body {
+	width: 400px;
+	height: 300px;
+}
+
+#workTime, #lunchTime, #resultMessage {
+	margin: 20px;
+}
+
+#lunchTime {
+	display: none;
+}

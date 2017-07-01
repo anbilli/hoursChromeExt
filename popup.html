@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Hours Calculator</title>
+		<script type="text/javascript" src="popup.js"></script>
+		<script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="styles.css">
+	</head>
+	<body>
+
+		<div id="workTime"> 
+			<div> How long would you like to work today? </div>
+			<input id="workHours" type="number">
+				<label for="workHours">Hours</label>
+			<input class="minutes" id="workMinutes" type="number" max="59">
+				<label for="workMinutes">Minutes</label>
+		</div>
+		<div id="lunchTime"> 
+			<div> How long do you plan on taking lunch? </div>
+			<input id="lunchHours" type="number">
+				<label for="lunchHours">Hours</label>
+			<input class="minutes" id="lunchMinutes" type="number" max="59">
+				<label for="lunchMinutes">Minutes</label>
+		</div>
+		<div id="resultMessage"> You should clock out at <span id="endTime"></span> </div>
+	</body>
+</html>
