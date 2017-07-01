@@ -23,7 +23,6 @@ window.addEventListener('DOMContentLoaded', function () {
 // Validate minutes input
 $(function() {
 	$('#workMinutes').bind('keypress', function(event){
-		console.log("keycode+++++++++");
 		if(event.keyCode < 48 || event.keyCode > 57) {
 			return false;
 		}
