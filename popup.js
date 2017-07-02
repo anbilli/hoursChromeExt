@@ -1,6 +1,17 @@
 // Insert results from content into popup DOM
 function setDOMInfo(data) {
 	document.getElementById('endTime').textContent = data["endTime"];
+	var luncher = data["luncher"];
+
+	if (luncher) {
+		// Hide lunch input if lunch already taken
+		document.getElementById('lunchTime').style.display = 'none';
+	}
+	else {
+		// Show lunch input if lunch not taken
+		document.getElementById('lunchTime').style.display = 'block';
+
+	}
 }
 
 // Execute on page load
@@ -34,3 +45,11 @@ $(function() {
 		}
 	});
 });
+
+// If 
+
+// Assign hours max = 24 - start time (12am)
+
+// comment if hour input > max-2 (10pm) : yeah right, youll be in bed watching netflix
+// comment if lunch is 0: okay, lunch skipper. you can always just order pizza: <jets number>
+// 

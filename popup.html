@@ -7,21 +7,33 @@
 		<link rel="stylesheet" type="text/css" href="styles.css">
 	</head>
 	<body>
-
-		<div id="workTime"> 
-			<div> How long would you like to work today? </div>
-			<input id="workHours" type="number">
-				<label for="workHours">Hours</label>
-			<input class="minutes" id="workMinutes" type="number" max="59">
-				<label for="workMinutes">Minutes</label>
-		</div>
-		<div id="lunchTime"> 
-			<div> How long do you plan on taking lunch? </div>
-			<input id="lunchHours" type="number">
-				<label for="lunchHours">Hours</label>
-			<input class="minutes" id="lunchMinutes" type="number" max="59">
-				<label for="lunchMinutes">Minutes</label>
-		</div>
-		<div id="resultMessage"> You should clock out at <span id="endTime"></span> </div>
+		<header>
+			<h1>Hours Calculator</h1>
+		</header>
+		<main>
+			<div id="workTime" class="row"> 
+				<div> How long would you like to work today? </div>
+				<div class="cell">
+					<input id="workHours" type="number" value="8" max="" min="0">
+					<label for="workHours">Hours</label>
+				</div>
+				<div class="cell">
+					<input class="minutes" id="workMinutes" type="number" value="0" max="59" min="0">
+					<label for="workMinutes">Minutes</label>
+				</div>
+			</div>
+			<div id="lunchTime" class="row"> 
+				<div> How long do you plan on taking lunch? </div>
+				<div class="cell">
+					<input id="lunchHours" type="number" value="1" max="" min="0">
+					<label for="lunchHours">Hours</label>
+				</div>
+				<div class="cell">
+					<input class="minutes" id="lunchMinutes" type="number" value="0" max="59">
+					<label for="lunchMinutes">Minutes</label>
+				</div>
+			</div>
+			<div id="resultMessage"> You should clock out at <span id="endTime"></span> </div>
+		</main>
 	</body>
 </html>

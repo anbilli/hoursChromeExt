@@ -36,9 +36,11 @@ chrome.runtime.onMessage.addListener(
 			
 			// Convert result to JSON
 			var val = document.getElementsByTagName("title")[0].innerHTML;
+			var bool = false;
 			var results = {
 				// endTime: endTime
-				endTime: val
+				endTime: val,
+				luncher: bool
 			};
 			
 			// Return results to extension	
