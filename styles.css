@@ -49,3 +49,7 @@ input {
 .row > div {
 	display: inline-block;
 }
+
+#endTime, #startTime {
+	display: none;
+}
