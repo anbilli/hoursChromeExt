@@ -1,5 +1,7 @@
 # HoursChromeExtension
 
+_!! To download, please go to https://github.com/anbilli/hoursChromeExt/releases !!_
+
 Steps to loading your handy hours calculator:
 
 I) Save the extension directory in an obvious place
