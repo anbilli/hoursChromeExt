@@ -61,6 +61,28 @@ function setDOMInfo(data) {
 	run();
 }
 
+// Validate all input fields and update endTime
+function run() {
+	$(function() {
+		if (document.getElementById("lunchTime").style.display == "block") {
+			validateInput("lunchHours");
+			validateInput("lunchMinutes");
+			
+			updateEndTimeWithLunch("lunchHours");
+			updateEndTimeWithLunch("lunchMinutes");
+			updateEndTimeWithLunch("workHours");
+			updateEndTimeWithLunch("workMinutes");
+		}
+		else {
+			updateEndTimeNoLunch("workHours");
+			updateEndTimeNoLunch("workMinutes");
+		}
+
+		validateInput("workHours");
+		validateInput("workMinutes");
+	});
+}
+
 // Adjust endTime according to work time only
 function updateEndTimeNoLunch(id) {
 	document.getElementById(id).onchange = 
@@ -68,6 +90,10 @@ function updateEndTimeNoLunch(id) {
 			var startTime = parseInt(document.getElementById("startTime").innerHTML);
 			var workHours = parseInt(document.getElementById("workHours").value);
 			var lunchLength = parseInt(document.getElementById("lunchLength").innerHTML);
+			
+			// Check for empty entries
+			isEmpty("workHours");
+			isEmpty("workMinutes");
 			
 			if (id == "workHours") {
 				var total = 24 * 60 - (startTime + workHours * 60 + lunchLength);
@@ -103,6 +129,12 @@ function updateEndTimeWithLunch(id) {
 			var workMins = document.getElementById("workMinutes");
 			var lunchHr = document.getElementById("lunchHours");
 			var lunchMins = document.getElementById("lunchMinutes");
+			
+			// Check for empty entries
+			isEmpty("lunchHours");
+			isEmpty("lunchMinutes");
+			isEmpty("workHours");
+			isEmpty("workMinutes");
 			
 			// Adjust maximums
 			if (id == "workHours") {				
@@ -182,7 +214,8 @@ function updateEndTimeWithLunch(id) {
 
 // Validates time input field
 function validateInput(id) {
-	document.getElementById(id).onkeypress = 
+	var object = document.getElementById(id);
+	object.onkeypress = 
 		function(e) {
 			var ev = e || window.event;
 			
@@ -199,26 +232,14 @@ function validateInput(id) {
 		}
 }
 
-// Validate all input fields and update endTime
-function run() {
-	$(function() {
-		if (document.getElementById("lunchTime").style.display == "block") {
-			validateInput("lunchHours");
-			validateInput("lunchMinutes");
-			
-			updateEndTimeWithLunch("lunchHours");
-			updateEndTimeWithLunch("lunchMinutes");
-			updateEndTimeWithLunch("workHours");
-			updateEndTimeWithLunch("workMinutes");
-		}
-		else {
-			updateEndTimeNoLunch("workHours");
-			updateEndTimeNoLunch("workMinutes");
-		}
-
-		validateInput("workHours");
-		validateInput("workMinutes");
-	});
+// Replaces empty entries with 0
+function isEmpty(id) {
+	object = document.getElementById(id);
+	console.log("before " + object.value);
+	if (object.value.length == 0) {
+		object.value = 0;
+	}
+	console.log("after " + object.value);
 }
 
 // Check for maxed out endTime
