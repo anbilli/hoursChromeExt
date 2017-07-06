@@ -3,22 +3,25 @@
 
 body {
 	width: 400px;
-	height: 300px;
+	height: 100px;
 	background-color: #fbc79d;
 }
 
 header {
-	background-color: #8ba8da;
+	background-color: #c0d0ed;
 	text-align: center;
-	font-size: 17px;
 	font-family: Lobster;
 	width: 100%;
 	position: absolute;
 	left: 0;
+	/* height: 60px; */
+	vertical-align: middle;
 }
 
 h1 {
-	padding: -60px;
+	/* padding: -60px; */
+	/* vertical-align: middle; */
+	font-size: 30px;
 }
 
 main {
@@ -26,30 +29,45 @@ main {
 	text-align: center;
 	font-family: Quicksand;
 	font-size: 16px;
-}
-
-#workTime, #lunchTime, #resultMessage {
 	margin: 20px;
 }
 
-#endTime {
-	font-style: italic;
+#workTime, #lunchTime, #messages {
+	margin: 20px;
+}
+
+#lunchMessage {
+	margin: 10px;
+}
+
+#resultMessage {
+	margin-top: 10px;
 }
 
 input {
 	width: 50px;
 	border-radius: 8px;
-	margin: 4px;
+	margin: 0px 4px;
+	text-align: center;
 }
 
 .cell {
-	margin: 15px;
+	margin: 10px 15px;
 }
 
 .row > div {
 	display: inline-block;
 }
 
-#endTime, #startTime {
+#endTime {
+	font-style: italic;
+}
+
+#endTime, #startTime, #errors, #lunchMessage {
 	display: none;
+}
+
+#errors {
+	font-size: 11px;
+	font-style: italic;
 }
