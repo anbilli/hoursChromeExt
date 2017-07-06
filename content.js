@@ -45,6 +45,5 @@ chrome.runtime.onMessage.addListener(
 
 // Parses time from row content
 function parseTime(input) {
-	return input.substring(input.indexOf(':')-2, input.indexOf(':')+3);
+	return input.substring(input.indexOf(':')-2, input.indexOf(':')+6);
 }
-
