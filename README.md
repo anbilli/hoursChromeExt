@@ -1,6 +1,8 @@
 # HoursChromeExtension
+
 ## To download the extension
 Please rate this app kthx
+
 https://chrome.google.com/webstore/detail/hours-calculator-extensio/pmlkahilhhebcglppiafaoddnpccjakc
 
 ## To run extension in developer mode:
