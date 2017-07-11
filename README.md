@@ -7,7 +7,7 @@ Please rate this app kthx! :poop:
 
 https://chrome.google.com/webstore/detail/hours-calculator-extensio/pmlkahilhhebcglppiafaoddnpccjakc
 
-## To run extension in developer mode:
+## To run extension in developer mode
 
 I) Save the extension directory in an obvious place
 
