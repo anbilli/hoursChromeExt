@@ -1,5 +1,7 @@
 # HoursChromeExtension
 
+This ADP-compatible extension calculates the clock-out time for individuals seeking to achieve a certain amount of daily hours. Accounts for lunch breaks. Compatible only with ADP.
+
 ## To download the extension
 Please rate this app kthx
 
