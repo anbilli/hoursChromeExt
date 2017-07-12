@@ -216,6 +216,28 @@ function updateEndTimeWithLunch(id) {
 		}
 }
 
+// Validates and formats endTime
+function setEndTime(endHours, endMins) {
+	var period = "AM";
+	
+	if (endHours >= 12) {
+		period = "PM";
+		if (endHours != 12) {
+			endHours = endHours - 12;
+		}
+	}
+	
+	document.getElementById("endHour").innerHTML = endHours;
+	document.getElementById("endMin").innerHTML = endMins + " " + period;
+	
+	if (period == "PM" && endHours == 11 && endMins == 59) {
+		document.getElementById("errors").style.display = "inline-block";
+	}
+	else {
+		document.getElementById("errors").style.display = "none";
+	}
+}
+
 // Validates time input field
 function validateInput(id) {
 	var object = document.getElementById(id);
@@ -241,28 +263,6 @@ function isEmpty(id) {
 	
 	if (object.value.length == 0) {
 		object.value = 0;
-	}
-}
-
-// Check for maxed out endTime
-function setEndTime(endHours, endMins) {
-	var period = "AM";
-	
-	if (endHours >= 12) {
-		period = "PM";
-		if (endHours != 12) {
-			endHours = endHours - 12;
-		}
-	}
-	
-	document.getElementById("endHour").innerHTML = endHours;
-	document.getElementById("endMin").innerHTML = endMins + " " + period;
-	
-	if (period == "PM" && endHours == 12 && endMins == 59) {
-		document.getElementById("errors").style.display = "inline-block";
-	}
-	else {
-		document.getElementById("errors").style.display = "none";
 	}
 }
 
