@@ -27,4 +27,4 @@ VII) Log in to ADP and click doge icon
 
 VIII) A window should pop up with your necessary check-out time
 
-![screenshot](https://github.com/anbilli/hoursChromeExt/blob/master/v2_screenshot.png "Version 2.0")
+![screenshot](https://github.com/anbilli/hoursChromeExt/blob/master/screen_v3.png "Version 2.0")
