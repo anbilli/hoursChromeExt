@@ -39,7 +39,6 @@ function setDOMInfo(data) {
 		// Adjust max workHours
 		var lunchLength = parseInt(document.getElementById("lunchLength").innerHTML);
 		document.getElementById("workHours").max = 24 - Math.ceil(startTime/60 + lunchLength/60);
-		console.log("####" + startTime/60 + " " + lunchLength/60);
 	}
 	// Lunch not taken
 	else {
@@ -57,9 +56,7 @@ function setDOMInfo(data) {
 	// Calculate end time for 8 hour day
 	var endTime = calcEndTime(startTime, lunchStart, lunchEnd);
 	
-	// Insert result into DOM
-	// document.getElementById("endHour").innerHTML = toHours(endTime);
-	// document.getElementById("endMin").innerHTML = toMinutes(endTime); 
+	// Insert result into DOM 
 	setEndTime(toHours(endTime), toMinutes(endTime));
 	document.getElementById("endTime").style.display = 'inline-block';
 	document.getElementById("startTime").innerHTML = startTime;
@@ -167,8 +164,8 @@ function updateEndTimeWithLunch(id) {
 				}
 				
 				// Lunch minute max
-				var total = 24 * 60 - (startTime + parseInt(workHr.value) * 60 + parseInt(workMins.value)
-					+ parseInt(lunchHr.value) * 60);
+				var total = 24 * 60 - (startTime + parseInt(workHr.value) * 60 
+					+ parseInt(workMins.value) + parseInt(lunchHr.value) * 60);
 
 				if (total <= 60) {
 					lunchMins.max = total - 1;
@@ -180,22 +177,21 @@ function updateEndTimeWithLunch(id) {
 				else {
 					lunchMins.max = 59;
 				}
-				
-
 			}
 			else if (id == "workMinutes" || id == "lunchHours") {
+				// Lunch hour max
 				if (id == "workMinutes") {
-					// Lunch hour max
 					lunchHr.max = 24 - parseInt(workHr.value) 
 						- Math.ceil((startTime + parseFloat(workMins.value)) / 60);
 					if (parseInt(lunchHr.value) > parseInt(lunchHr.max)) {
 						lunchHr.value = lunchHr.max;
 					}
 				}
+				
 				// Lunch minutes max
 				var total = 24 * 60 - (startTime + parseInt(workHr.value) * 60 + parseInt(workMins.value)
 					+ parseInt(lunchHr.value) * 60);
-					console.log("mins " + parseInt(workMins.value)/60);
+
 				if (total <= 60) {
 					lunchMins.max = total - 1;
 					
@@ -235,19 +231,17 @@ function validateInput(id) {
 			}
 			else {
 				return true;
-			}
-			
+			}	
 		}
 }
 
 // Replaces empty entries with 0
 function isEmpty(id) {
 	object = document.getElementById(id);
-	console.log("before " + object.value);
+	
 	if (object.value.length == 0) {
 		object.value = 0;
 	}
-	console.log("after " + object.value);
 }
 
 // Check for maxed out endTime
