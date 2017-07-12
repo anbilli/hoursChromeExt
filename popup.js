@@ -36,6 +36,10 @@ function setDOMInfo(data) {
 		document.getElementById("lunchLength").innerHTML = lunchEnd - lunchStart;
 		document.getElementById("lunchMessage").style.display = "block";
 		
+		// Adjust max workHours
+		var lunchLength = parseInt(document.getElementById("lunchLength").innerHTML);
+		document.getElementById("workHours").max = 24 - Math.ceil(startTime/60 + lunchLength/60);
+		console.log("####" + startTime/60 + " " + lunchLength/60);
 	}
 	// Lunch not taken
 	else {
@@ -45,19 +49,22 @@ function setDOMInfo(data) {
 		startTime = parseMinutes(startTime);
 		lunchStart = parseMinutes("12:00 PM");
 		lunchEnd = parseMinutes("01:00 PM");
+		
+		// Adjust max workHours
+		document.getElementById("workHours").max = 24 - Math.ceil(startTime/60);
 	}
 	
 	// Calculate end time for 8 hour day
 	var endTime = calcEndTime(startTime, lunchStart, lunchEnd);
 	
 	// Insert result into DOM
-	document.getElementById("endHour").innerHTML = toHours(endTime);
-	document.getElementById("endMin").innerHTML = toMinutes(endTime); 
+	// document.getElementById("endHour").innerHTML = toHours(endTime);
+	// document.getElementById("endMin").innerHTML = toMinutes(endTime); 
+	setEndTime(toHours(endTime), toMinutes(endTime));
 	document.getElementById("endTime").style.display = 'inline-block';
 	document.getElementById("startTime").innerHTML = startTime;
 	
-	// Adjust max workHours
-	document.getElementById("workHours").max = 24 - Math.ceil(startTime/60);
+	// Begin validation
 	run();
 }
 
@@ -95,6 +102,7 @@ function updateEndTimeNoLunch(id) {
 			isEmpty("workHours");
 			isEmpty("workMinutes");
 			
+			// Adjust work minutes max
 			if (id == "workHours") {
 				var total = 24 * 60 - (startTime + workHours * 60 + lunchLength);
 				var workMins = document.getElementById("workMinutes");
@@ -244,10 +252,19 @@ function isEmpty(id) {
 
 // Check for maxed out endTime
 function setEndTime(endHours, endMins) {
-	document.getElementById("endHour").innerHTML = endHours;
-	document.getElementById("endMin").innerHTML = endMins;
+	var period = "AM";
 	
-	if (endHours == 23 && endMins == 59) {
+	if (endHours >= 12) {
+		period = "PM";
+		if (endHours != 12) {
+			endHours = endHours - 12;
+		}
+	}
+	
+	document.getElementById("endHour").innerHTML = endHours;
+	document.getElementById("endMin").innerHTML = endMins + " " + period;
+	
+	if (period == "PM" && endHours == 12 && endMins == 59) {
 		document.getElementById("errors").style.display = "inline-block";
 	}
 	else {
@@ -284,6 +301,6 @@ function toMinutes(time) {
 
 // Input: minutes, int
 // Output: minutes, int
-function calcEndTime(start, lunch1, lunch2) {
-	return start + (8 * 60) + (lunch2 - lunch1);
+function calcEndTime(start, lunchStart, lunchEnd) {
+	return start + (8 * 60) + (lunchEnd - lunchStart);
 }

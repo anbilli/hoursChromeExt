@@ -9,19 +9,20 @@ body {
 
 header {
 	background-color: #c0d0ed;
+	border-top: 5px solid white;
+	border-bottom: 5px solid white;
 	text-align: center;
-	font-family: Lobster;
 	width: 100%;
 	position: absolute;
 	left: 0;
-	/* height: 60px; */
-	vertical-align: middle;
+
 }
 
 h1 {
-	/* padding: -60px; */
-	/* vertical-align: middle; */
 	font-size: 30px;
+	font-weight: normal;
+	font-family: Lobster;
+	letter-spacing: 3px;
 }
 
 main {
