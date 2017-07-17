@@ -3,8 +3,9 @@
 
 body {
 	width: 400px;
-	height: 100px;
+	height: auto;
 	background-color: #fbc79d;
+	margin: 0px;
 }
 
 header {
@@ -13,8 +14,11 @@ header {
 	border-bottom: 5px solid white;
 	text-align: center;
 	width: 100%;
-	position: absolute;
-	left: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 20px 0px;
+	height: 62px;
 }
 
 h1 {
@@ -25,7 +29,6 @@ h1 {
 }
 
 main {
-	padding-top: 80px; 
 	text-align: center;
 	font-family: Quicksand;
 	font-size: 16px;

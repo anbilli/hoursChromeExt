@@ -15,9 +15,9 @@ chrome.runtime.onMessage.addListener(
 			var scans = tbody.children.length;
 			
 			// Parse times
-			var startTime = null;
-			var lunchStart = null;
-			var lunchEnd = null;
+			var startTime = null,
+				lunchStart = null,
+				lunchEnd = null;
 			
 			if (scans > 0) {
 				var trow1 = tbody.children[0].innerHTML;
